@@ -13,17 +13,17 @@
       <div class="p-3">
         <h3 class="font-bold">{{ meal.strMeal }}</h3>
         <p class="mb-4">
-          Lorem ipsum bhang bhdjael uadhfba jhkw eukjt akjhekiiiadnfkn,xkcuaUb
-          adhfkajdhfoaudfn
+          {{ truncateWords(meal.strInstructions, 20) }}
         </p>
         <div class="flex items-center justify-between">
-          <YouTubeButton :href="meal.strYoutube">Youtube</YouTubeButton>
+          <YouTubeButton :href="meal.strYoutube"></YouTubeButton>
         </div>
       </div>
     </div>
 </template>
 
 <script setup>
+import { truncateWords } from '../filters';
 import YouTubeButton from "../components/YouTubeButton.vue"
 const {meal} = defineProps({
     meal: {
